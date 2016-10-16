@@ -10,6 +10,7 @@ import javax.swing.*;
  * limit of $15,000, until you reach the end of year or earning goal of $100,000 for the year;
  * and sends you for a vacation in Honolulu if you achieve the goal, otherwise
  * encourages you to enjoy in Montreal.
+ * If the user clicks on cancel it automatically stops the program.
  */
 
 
@@ -78,8 +79,12 @@ public class ABC_store {
                             System.out.println("Thanks for transaction amount $" + transactionAmount);
                             monthlyEarning += commissionEarnings(transactionAmount);
                             totalEarnings += monthlyEarning;
-                        } else if (userAnswer == 1) {
+                        }
+                        else if (userAnswer == 1) {
                             System.out.println("OK. See you next time.");
+                        }
+                        else {
+                            System.exit(1);
                         }
                         break;
 
@@ -87,6 +92,9 @@ public class ABC_store {
                     case 1:
                         monthlyEarning=(double) Math.round(monthlyEarning * 100) / 100;
                         System.out.println("Your commission pay for this month is $" + monthlyEarning);
+                        break;
+                    case 2:
+                        System.exit(1);
                         break;
                 }
 
